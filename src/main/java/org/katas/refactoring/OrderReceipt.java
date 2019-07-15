@@ -18,10 +18,8 @@ public class OrderReceipt {
     public String printReceipt() {
         StringBuilder output = new StringBuilder();
 
-        // print headers
         printReceiptHeaders(output);
 
-        // prints lineItems
         double totalSalesTax = 0d;
         double totalAmount = 0d;
         for (LineItem lineItem : order.getLineItems()) {
@@ -31,7 +29,6 @@ public class OrderReceipt {
             totalAmount += lineItem.totalAmount() + salesTax;
         }
 
-        //print sales tax and total amount
         printStateTaxAndTotalAmount(output, totalSalesTax, totalAmount);
 
         return output.toString();
