@@ -44,19 +44,11 @@ public class OrderReceipt {
     }
 
     public void printLineItems(LineItem lineItem, StringBuilder output) {
-        output.append(lineItem.getDescription());
-        output.append('\t');
-        output.append(lineItem.getPrice());
-        output.append('\t');
-        output.append(lineItem.getQuantity());
-        output.append('\t');
-        output.append(lineItem.totalAmount());
-        output.append('\n');
+        output.append(String.format("%s\t%s\t%s\t%s\n", lineItem.getDescription(), lineItem.getPrice(), lineItem.getQuantity(), lineItem.totalAmount()));
     }
 
     public void printStateTaxAndTotalAmount(StringBuilder output, double salesTax, double totalAmount) {
-        output.append("Sales Tax").append('\t').append(salesTax);
-        output.append("Total Amount").append('\t').append(totalAmount);
+        output.append(String.format("Sales Tax\t%s\nTotal Amount\t%s\n", salesTax, totalAmount));
     }
 
     public Double getSalesTax(LineItem lineItem) {
