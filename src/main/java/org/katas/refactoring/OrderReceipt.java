@@ -35,9 +35,7 @@ public class OrderReceipt {
     }
 
     public void printReceiptHeaders(StringBuilder output) {
-        output.append(RECEIPT_HEADERS);
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+        output.append(String.format("%s\n%s\n%s\n", RECEIPT_HEADERS, order.getCustomerName(), order.getCustomerAddress()));
     }
 
     public void printLineItems(LineItem lineItem, StringBuilder output) {
